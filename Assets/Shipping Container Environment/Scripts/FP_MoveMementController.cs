@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Threading;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -67,8 +68,10 @@ public class FP_MoveMementController : MonoBehaviour
                 currentSpeed = Input.GetKey(KeyCode.LeftShift) ? SprintingSpeed : WalkSpeed;
             }
 
-            velocity = characterController.velocity.magnitude;
-            characterAnimator.SetFloat("Velocity", velocity);
+            var tmp_velocity = characterController.velocity;
+            tmp_velocity.y = 0;
+            velocity = tmp_velocity.magnitude;
+            characterAnimator.SetFloat("Velocity", velocity, 0.25f, Time.deltaTime);
         }
         movementDirection.y -=  Gravity * Time.deltaTime;
         characterController.Move(movementDirection * Time.deltaTime * currentSpeed);//不具备重力算法
