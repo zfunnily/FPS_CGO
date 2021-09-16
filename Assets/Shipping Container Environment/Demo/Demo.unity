@@ -16412,6 +16412,7 @@ GameObject:
   - component: {fileID: 95368696248834495}
   - component: {fileID: 82039148211623589}
   - component: {fileID: 82020908673014379}
+  - component: {fileID: 1402701090613976}
   m_Layer: 8
   m_Name: arms_assault_rifle_01
   m_TagString: Untagged
@@ -16419,6 +16420,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1402701090613976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402701090613975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54207fe77a0ac4c55ba0d1d93a23be31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MuzzlePoint: {fileID: 0}
+  CasingPoing: {fileID: 0}
+  MuzzleParticle: {fileID: 0}
+  CasingParticle: {fileID: 0}
+  FireRate: 0
+  AmmoInMag: 30
+  MaxAmmoCarried: 120
+  lastFireTime: 0
 --- !u!1 &1419684431429735
 GameObject:
   m_ObjectHideFlags: 0
