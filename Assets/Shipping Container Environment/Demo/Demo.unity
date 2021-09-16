@@ -828,6 +828,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: bd8f621094ac8434c9f91eb12ca5e7ac, type: 3}
+      propertyPath: m_TagString
+      value: Carpet
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bd8f621094ac8434c9f91eb12ca5e7ac, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.1005397
@@ -4254,6 +4258,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c9d984721e828ef4a9f1c9ca8b2b0eca, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c9d984721e828ef4a9f1c9ca8b2b0eca, type: 3}
       propertyPath: m_LocalPosition.x
       value: -39.328968
@@ -5901,6 +5909,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c9d984721e828ef4a9f1c9ca8b2b0eca, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c9d984721e828ef4a9f1c9ca8b2b0eca, type: 3}
       propertyPath: m_LocalPosition.x
       value: -17.314913
@@ -6312,6 +6324,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: bd8f621094ac8434c9f91eb12ca5e7ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: bd8f621094ac8434c9f91eb12ca5e7ac, type: 3}
+      propertyPath: m_TagString
+      value: Carpet
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bd8f621094ac8434c9f91eb12ca5e7ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7722,9 +7738,6 @@ GameObject:
   - component: {fileID: 1000950007}
   - component: {fileID: 1000950006}
   - component: {fileID: 1000950005}
-  - component: {fileID: 1000950004}
-  - component: {fileID: 1000950003}
-  - component: {fileID: 1000950002}
   m_Layer: 9
   m_Name: First Person Character
   m_TagString: Player
@@ -7748,42 +7761,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1000950002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000950000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee9bebb3e8cf26e40b9a8c36276b7757, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1000950003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000950000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cadd54e4832aeef4b9359f44cbe335cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1000950004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000950000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0df9a9d86fd853489f8817ca5901293, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &1000950005
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9333,6 +9310,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 0aedc51402220b149a9e478e78751221, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0aedc51402220b149a9e478e78751221, type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0aedc51402220b149a9e478e78751221, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16693,6 +16674,7 @@ GameObject:
   - component: {fileID: 82931547191677477}
   - component: {fileID: 1778574931896720}
   - component: {fileID: 1778574931896721}
+  - component: {fileID: 1778574931896722}
   m_Layer: 8
   m_Name: Assault_Rifle_01_FPSController
   m_TagString: Untagged
@@ -16738,6 +16720,20 @@ MonoBehaviour:
   SprintingSpeedWhenCrouch: 4
   WalkSpeedWhenCrouch: 2
   CrouchHeight: 1
+--- !u!114 &1778574931896722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778574931896719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc75e69d7267648d9bf61429d06b6cd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footStepAudioData: {fileID: 11400000, guid: f9aaac1a7de3f4034bd6e5dd51128ae6, type: 2}
+  footStepAudioSource: {fileID: 82931547191677477}
 --- !u!1 &1779037432839383
 GameObject:
   m_ObjectHideFlags: 0

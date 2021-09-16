@@ -3,7 +3,19 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Target
+  - Metal
+  - ExplosiveBarrel
+  - Carpet
+  - Concrete
+  - dirt
+  - Gravel
+  - Rock
+  - Snow
+  - Water
+  - Wood
+  - Grass
   layers:
   - Default
   - TransparentFX
