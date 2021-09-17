@@ -52977,13 +52977,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54207fe77a0ac4c55ba0d1d93a23be31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MuzzlePoint: {fileID: 0}
-  CasingPoing: {fileID: 0}
-  MuzzleParticle: {fileID: 0}
-  CasingParticle: {fileID: 0}
+  MuzzlePoint: {fileID: 5277941825778307209}
+  CasingPoing: {fileID: 8376191115134477661}
+  MuzzleParticle: {fileID: 5274485220373060509}
+  CasingParticle: {fileID: 5160410175916704837}
   FireRate: 11.7
   AmmoInMag: 30
   MaxAmmoCarried: 120
+  BullePrefab: {fileID: 4613191001469152396, guid: 098f883e1fc5e4aec879f093c761db02,
+    type: 3}
   lastFireTime: 0
 --- !u!1 &8373740791310609485
 GameObject:

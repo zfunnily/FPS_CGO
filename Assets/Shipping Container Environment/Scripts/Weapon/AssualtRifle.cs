@@ -8,17 +8,23 @@ namespace Scripts.weapon
     {
         protected override void Shooting()
         {
-            Debug.Log("Shooting");
+            // Debug.Log("Shooting");
         }
         protected override void Reload()
         {
-            Debug.Log("Reload");
+            // Debug.Log("Reload");
+            CurrentMaxAmmoCarried = CurrentMaxAmmoCarried - (AmmoInMag-CurrentAmmo);
+            CurrentAmmo = AmmoInMag;
         }
 
         private void Update() {
             if (Input.GetMouseButton(0))
             {
                 DoAttack();
+            }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                Reload();
             }
         }
     }
