@@ -63,7 +63,6 @@ public class FP_MoveMementController : MonoBehaviour
                 currentSpeed = Input.GetKey(KeyCode.LeftShift) ? SprintingSpeedWhenCrouch : WalkSpeedWhenCrouch;
             }
             else
-
             {
                 currentSpeed = Input.GetKey(KeyCode.LeftShift) ? SprintingSpeed : WalkSpeed;
             }
@@ -75,8 +74,7 @@ public class FP_MoveMementController : MonoBehaviour
         }
         movementDirection.y -=  Gravity * Time.deltaTime;
         characterController.Move(movementDirection * Time.deltaTime * currentSpeed);//不具备重力算法
-        Debug.Log(velocity);
-
+        // Debug.Log(velocity);
     }
 
     private IEnumerator DoCrouch(float target)
