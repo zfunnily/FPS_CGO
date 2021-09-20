@@ -10,6 +10,7 @@ namespace Scripts.weapon
     public class AssualtRifle : Firearms
     {
         private int AnimatorIndex = 1;
+        private IEnumerator reloadAmmoCheckCoroutine;
         protected override void Shooting()
         {
             if (CurrentAmmo <= 0) { return ;}
@@ -20,13 +21,32 @@ namespace Scripts.weapon
             CreateBullet();
             CasingParticle.Play();
             LastFireTime = Time.time;
+            //开火的声音
+            FirearmsShootingAudioSource.clip = FirearmAudioData.ShootingAudio;
+            FirearmsShootingAudioSource.Play();
         }
         protected override void Reload()
         {
             GunAnimator.SetLayerWeight(AnimatorIndex, 1);
             GunAnimator.SetTrigger(CurrentAmmo > 0 ? "ReloadLeft":"ReloadOutOf");
             
-            StartCoroutine(CheckReloadAnimationEnd());
+            //换弹夹的声音
+            FirearmsReloadAudioSource.clip = CurrentAmmo > 0 ? FirearmAudioData.ReloadLeft: FirearmAudioData.ReloadOutOf;
+            FirearmsReloadAudioSource.Play();
+
+            //换弹夹的动作
+            if (reloadAmmoCheckCoroutine == null)
+            {
+                reloadAmmoCheckCoroutine = CheckReloadAnimationEnd();
+                StartCoroutine(reloadAmmoCheckCoroutine);
+            }
+            else
+            {
+                StopCoroutine(reloadAmmoCheckCoroutine);
+                reloadAmmoCheckCoroutine = null;
+                reloadAmmoCheckCoroutine = CheckReloadAnimationEnd();
+                StartCoroutine(reloadAmmoCheckCoroutine);
+            }
         }
 
         private void Update() {

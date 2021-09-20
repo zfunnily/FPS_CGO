@@ -14,6 +14,13 @@ namespace Scripts.weapon
         public int MaxAmmoCarried = 120; //多少发子弹
         public GameObject BullePrefab; //子弹的 prefab
 
+        //给开枪加声音
+        public AudioSource FirearmsShootingAudioSource;
+        //换弹夹声音
+        public AudioSource FirearmsReloadAudioSource;
+
+        public FirearmAudioData FirearmAudioData;
+
 
         protected int CurrentAmmo;
         protected int CurrentMaxAmmoCarried;
