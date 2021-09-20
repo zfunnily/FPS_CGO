@@ -9,7 +9,7 @@ namespace Scripts.weapon
 {
     public class AssualtRifle : Firearms
     {
-        private int AnimatorIndex = 1;
+        enum LayerIndex { Base, Reload, Aim};
         private IEnumerator reloadAmmoCheckCoroutine;
         protected override void Shooting()
         {
@@ -17,7 +17,7 @@ namespace Scripts.weapon
             if (!IsAllowShooting()) { return;}
             MuzzleParticle.Play();
             CurrentAmmo -= 1;
-            GunAnimator.Play("Fire", 0, 0);
+            GunAnimator.Play("Fire", IsAiming ? (int)LayerIndex.Aim: (int)LayerIndex.Base , 0);
             CreateBullet();
             CasingParticle.Play();
             LastFireTime = Time.time;
@@ -27,7 +27,7 @@ namespace Scripts.weapon
         }
         protected override void Reload()
         {
-            GunAnimator.SetLayerWeight(AnimatorIndex, 1);
+            GunAnimator.SetLayerWeight((int)LayerIndex.Reload, 1);
             GunAnimator.SetTrigger(CurrentAmmo > 0 ? "ReloadLeft":"ReloadOutOf");
             
             //换弹夹的声音
@@ -49,6 +49,11 @@ namespace Scripts.weapon
             }
         }
 
+        protected override void Aim()
+        {
+            GunAnimator.SetBool("Aim", IsAiming);
+        }
+
         private void Update() {
             if (Input.GetMouseButton(0))
             {
@@ -57,6 +62,18 @@ namespace Scripts.weapon
             if (Input.GetKeyDown(KeyCode.R))
             {
                 Reload();
+            }
+            if (Input.GetMouseButtonDown(1))
+            {
+                //瞄准
+                IsAiming = true;
+                Aim();
+            }
+            if (Input.GetMouseButtonUp(1))
+            {
+                //退出瞄准
+                IsAiming = false;
+                Aim();
             }
         }
 
@@ -73,7 +90,7 @@ namespace Scripts.weapon
             while(true)
             {
                 yield return null;
-                GunStateInfo =  GunAnimator.GetCurrentAnimatorStateInfo(AnimatorIndex);
+                GunStateInfo =  GunAnimator.GetCurrentAnimatorStateInfo(LayerIndex.Reload);
                 if (GunStateInfo.IsTag("ReloadAmmo"))
                 {
                     if (GunStateInfo.normalizedTime > 0.95f)

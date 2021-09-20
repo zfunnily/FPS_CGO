@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using UnityEngine;
 namespace Scripts.weapon
@@ -13,6 +14,8 @@ namespace Scripts.weapon
         public int AmmoInMag = 30;//弹夹
         public int MaxAmmoCarried = 120; //多少发子弹
         public GameObject BullePrefab; //子弹的 prefab
+        
+        public Camera EyeCamera; //瞄准后的Camera
 
         //给开枪加声音
         public AudioSource FirearmsShootingAudioSource;
@@ -28,16 +31,20 @@ namespace Scripts.weapon
 
         protected Animator GunAnimator;
         protected AnimatorStateInfo GunStateInfo;
+        protected float OriginFov;
+        protected bool IsAiming; 
 
-        //射击
-        protected abstract void Shooting();
-        protected abstract void Reload();
+        
+        protected abstract void Shooting();//射击
+        protected abstract void Reload();//换弹夹
+        protected abstract void Aim(); //瞄准
 
         protected virtual void Start()
         {
             CurrentAmmo = AmmoInMag;
             CurrentMaxAmmoCarried = MaxAmmoCarried;
             GunAnimator = GetComponent<Animator>();
+            OriginFov = EyeCamera.fieldOfView;
         }
 
         public void DoAttack() 
