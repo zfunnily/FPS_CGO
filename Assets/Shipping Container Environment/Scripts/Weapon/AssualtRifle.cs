@@ -11,6 +11,14 @@ namespace Scripts.weapon
     {
         enum LayerIndex { Base, Reload, Aim};
         private IEnumerator reloadAmmoCheckCoroutine;
+        private IEnumerator doAmiCoroutine;
+
+        protected override void  Start()
+        {
+            base.Start();
+           reloadAmmoCheckCoroutine = CheckReloadAnimationEnd();
+           doAmiCoroutine = DoAim();
+        }
         protected override void Shooting()
         {
             if (CurrentAmmo <= 0) { return ;}
@@ -52,6 +60,18 @@ namespace Scripts.weapon
         protected override void Aim()
         {
             GunAnimator.SetBool("Aim", IsAiming);
+            if (doAmiCoroutine == null)
+            {
+                doAmiCoroutine = DoAim();
+                StartCoroutine(doAmiCoroutine);
+            }
+            else
+            {
+                StopCoroutine(doAmiCoroutine);
+                doAmiCoroutine = null;
+                doAmiCoroutine = DoAim();
+                StartCoroutine(doAmiCoroutine);
+            }
         }
 
         private void Update() {
@@ -90,7 +110,7 @@ namespace Scripts.weapon
             while(true)
             {
                 yield return null;
-                GunStateInfo =  GunAnimator.GetCurrentAnimatorStateInfo(LayerIndex.Reload);
+                GunStateInfo =  GunAnimator.GetCurrentAnimatorStateInfo((int)LayerIndex.Reload);
                 if (GunStateInfo.IsTag("ReloadAmmo"))
                 {
                     if (GunStateInfo.normalizedTime > 0.95f)
@@ -112,5 +132,20 @@ namespace Scripts.weapon
             }
 
         }
+
+        private IEnumerator DoAim()
+        {
+            while(true)
+            {
+                yield return null;
+                float tmp_CurrentFOV = 0;
+                EyeCamera.fieldOfView = Mathf.SmoothDamp(EyeCamera.fieldOfView,
+                IsAiming ? 26 : OriginFov,
+                ref tmp_CurrentFOV,
+                Time.deltaTime * 2);
+            }
+        }
+
+
     }
 }

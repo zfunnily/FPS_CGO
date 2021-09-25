@@ -52986,6 +52986,7 @@ MonoBehaviour:
   MaxAmmoCarried: 120
   BullePrefab: {fileID: 4613191001469152396, guid: 098f883e1fc5e4aec879f093c761db02,
     type: 3}
+  EyeCamera: {fileID: 8393538875638168337}
   FirearmsShootingAudioSource: {fileID: 8436058326447309493}
   FirearmsReloadAudioSource: {fileID: 8436075417375739515}
   FirearmAudioData: {fileID: 11400000, guid: eb2196897f14044c9a793bc3662fac94, type: 2}
